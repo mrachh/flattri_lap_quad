@@ -1,0 +1,28 @@
+@function [grad] = lpeval_lap_g(targs,sinfo,charges,rfac,nover,eps)
+    [~,nt] = size(targs);
+    npatches = sinfo.npatches;
+    centers = sinfo.centers;
+    verts = sinfo.verts;
+    [~,nv] = size(verts);
+    triind = sinfo.triind;
+    area = sinfo.area;
+    rnormals = sinfo.normals;
+    
+    grad = zeros(3,nt);
+    
+    #FORTRAN lpeval_lap_g(int[1] nt, double [3,nt] targs, int[1] npatches, double[3,npatches] centers, int[1] nv, double[3,nv] verts, int[3,npatches] triind, double[npatches] area, double[3,npatches] rnormals, double[npatches] charges, double[1] rfac, int[1] nover, double[1] eps, inout double[3,nt] grad);
+
+end
+    
+
+
+
+@function [areas] = get_areas(sinfo)
+  verts = sinfo.verts;
+  [~,nv] = size(verts);
+  triind = sinfo.triind;
+  npatches = sinfo.npatches;
+  
+  areas = zeros(npatches,1);
+  # FORTRAN get_areas(int[1] npatches,int[1] nv, double[3,nv] verts, int[3,npatches] triind, inout double[npatches] areas);
+end
