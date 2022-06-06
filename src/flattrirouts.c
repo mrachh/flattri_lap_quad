@@ -599,6 +599,9 @@ mxWrapReturnZDef   (mxWrapReturn_dcomplex, dcomplex,
 #elif defined(MWF77_UNDERSCORE1)
 #define MWF77_lpeval_lap_g lpeval_lap_g_
 #define MWF77_get_areas get_areas_
+#elif defined(MWF77_UNDERSCORE0)
+#define MWF77_lpeval_lap_g lpeval_lap_g
+#define MWF77_get_areas get_areas
 #else /* f2c convention */
 #define MWF77_lpeval_lap_g lpeval_lap_g__
 #define MWF77_get_areas get_areas__
